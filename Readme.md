@@ -3,6 +3,12 @@
 Insertando
 
 
+## Datos Usados en el Proyecto
+El archivo de Datos de  la calidad del café, dejaré el link par más información
+
+- [Coffee Quality database from CQI](https://www.kaggle.com/volpatto/coffee-quality-database-from-cqi?select=merged_data_cleaned.csv)
+
+
 ## Problemas
 
 Durante el desarrollo se encontró algunos problemas de versiones, para resolverlos en prompt se ejecutaron lo siguiente
