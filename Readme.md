@@ -1,23 +1,22 @@
 # Mi primer Proyecto de Data Analytics 
-
-Insertando
+Este proyecto se encuentra en desarrollo
 
 ## Analisis Exploratorio de Datos
 EDA, por sus siglas en inglés, es el proceso de limpieza y descubrimiento de insights a través de la revisión detallada de un conjunto de datos.
 
 ### Pasos de preparación
-1. Seleccionar las variables a analizar (que sean relevantes para el estudio) ✔
-2. Verificar la integridad de las variables (si están limpias o qué debemos hacer para limpiarlas o si no se pueden usar) ✔
-3. Plantearse preguntas de exploración 
-4. Plantear hipotesis a partir de nuestras variables*
+1. Seleccionar las variables a analizar (que sean relevantes para el estudio). ✔
+2. Verificar la integridad de las variables (si están limpias o qué debemos hacer para limpiarlas o si no se pueden usar). ✔
+3. Plantearse preguntas de exploración.
+4. Plantear hipotesis a partir de nuestras variables.*
 
 ### Pasos de EDA
-1. Limpiar los datos (80% del tiempo) 
-2. Responder las preguntas de exploración a partir de los datos (indicadores y gráficas)
-3. Responder las hipótesis (Tests estadísticos | estadística descriptiva)*
-4. Generar un reporte de resultados para el público en general
+1. Limpiar los datos (80% del tiempo).
+2. Responder las preguntas de exploración a partir de los datos (indicadores y gráficas).
+3. Responder las hipótesis (Tests estadísticos | estadística descriptiva).*
+4. Generar un reporte de resultados para el público en general.
 
-    *Pasos opcionales dependiendo de la experiencia en el area de analisis
+    *Pasos opcionales dependiendo de la experiencia en el area de analisis.
 
 
 ## Datos Usados en el Proyecto
