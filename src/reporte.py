@@ -15,15 +15,20 @@ def load_data(nrows):
 df_load_state = st.text('Cargando data ...')
 df = load_data(8486)
 
+df_main = pd.read_csv('./data/merged_data_cleaned.csv')
+
 if st.checkbox('Mostrar datos crudos'):
     st.subheader('Datos crudos')
     st.write(df)
 
 
+## ----------------###
+
+
 # Primera pregunta
 
 
-conteo_variedad_x_especie = (df[['Variety']] # Seleccion de columna y elimino NaNs
+conteo_variedad_x_especie = (df_main[['Variety']] # Seleccion de columna y elimino NaNs
                             .groupby(['Variety']).size() # Agrupo y cuento las obs. por intervalo de
                             .reset_index() # Convierte a df 
                             .rename({0: 'conteo'}, axis=1) # Cambia el nombre de "0" a "conteo"
