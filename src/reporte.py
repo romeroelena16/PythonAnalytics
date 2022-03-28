@@ -1,9 +1,6 @@
 #from turtle import color
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
-#import seaborn as sns
-#from scipy import stats
 import numpy as np
 #import plotly.figure_factory as ff
 import plotly.express as px
@@ -42,6 +39,5 @@ conteo_variedad_x_especie = conteo_variedad_x_especie.head(8)
 # , y='Variety',color=['a','b','c','d','e','f','g','h'])
 conteo_variedad_x_especie_fig = px.bar(conteo_variedad_x_especie, x='conteo', y='Variety')
 st.plotly_chart(conteo_variedad_x_especie_fig, use_container_width = True)
-plt.grid(color='c', linestyle='dotted', linewidth=1)
 st.write('Se obtiene las variedades más sembradas')   
 
