@@ -21,6 +21,16 @@ if st.checkbox('Mostrar datos crudos'):
     st.subheader('Datos crudos')
     st.write(df)
 
+###-----
+
+# Función para descargar csv
+@st.cache
+def convert_df(df):
+   return df.to_csv().encode('utf-8')
+
+csv = convert_df(df)
+st.download_button('Descargar datos crudos del café',csv,'merged_data_cleaned.csv','text/csv',key='download-csv')
+
 
 ## ----------------###
 
