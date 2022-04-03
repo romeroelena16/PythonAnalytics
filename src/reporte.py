@@ -96,7 +96,7 @@ st.plotly_chart(Variables_Calidad_Cafe_fig, use_container_width = True)
 #Variables_Calidad_Cafe = ['Aroma','Flavor', 'Aftertaste', 'Acidity', 'Body', 'Balance', 'Uniformity',
 #                          'Clean_Cup', 'Sweetness','Cupper_Points','Total_Cup_Points']
 
-st.subheader('3. Que variables impacta con la calidad del café')
+st.subheader('4. Que variables impacta con la calidad del café')
 
 Calidad_Cafe_fig = px.scatter(df_main,x='Aroma',y='Total_Cup_Points')
 Calidad_Cafe_fig2 = px.scatter(df_main,x='Flavor',y='Total_Cup_Points')
