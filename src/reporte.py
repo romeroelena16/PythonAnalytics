@@ -4,6 +4,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import plotly.express as px
+import plotly.graph_objects as go
 
 
 st.title('Reporte de la Calidad del Café')
@@ -93,21 +94,35 @@ st.plotly_chart(Variables_Calidad_Cafe_fig, use_container_width = True)
 
 ####### Cuarta pregunta
 
-#Variables_Calidad_Cafe = ['Aroma','Flavor', 'Aftertaste', 'Acidity', 'Body', 'Balance', 'Uniformity',
-#                          'Clean_Cup', 'Sweetness','Cupper_Points','Total_Cup_Points']
+
 
 st.subheader('4. Que variables impacta con la calidad del café')
 
-Calidad_Cafe_fig = px.scatter(df_main,x='Aroma',y='Total_Cup_Points')
-Calidad_Cafe_fig2 = px.scatter(df_main,x='Flavor',y='Total_Cup_Points')
-#Calidad_Cafe_fig.add_scatter(x=df_main['Aftertaste'],y=df_main['Total_Cup_Points'])
-#Calidad_Cafe_fig.add_scatter(x=df_main['Acidity'],y=df_main['Total_Cup_Points'])
-#Calidad_Cafe_fig.add_scatter(x=df_main['Body'],y=df_main['Total_Cup_Points'])
-#Calidad_Cafe_fig.add_scatter(x=df_main['Balance'],y=df_main['Total_Cup_Points'])
-#Calidad_Cafe_fig.add_scatter(x=df_main['Uniformity'],y=df_main['Total_Cup_Points'])
-#Calidad_Cafe_fig.add_scatter(x=df_main['Clean_Cup'],y=df_main['Total_Cup_Points'])
-#Calidad_Cafe_fig.add_scatter(x=df_main['Sweetness'],y=df_main['Total_Cup_Points'])
-#Calidad_Cafe_fig.add_scatter(x=df_main['Cupper_Points'],y=df_main['Total_Cup_Points'])
-st.plotly_chart(Calidad_Cafe_fig, use_container_width = True)
-st.plotly_chart(Calidad_Cafe_fig2, use_container_width = True)
+# Variables principales que afectan la puntuación total
+Variables_Calidad_Cafe = ['Aroma','Flavor', 'Aftertaste', 'Acidity', 'Body', 'Balance', 'Uniformity',
+                          'Clean_Cup', 'Sweetness','Cupper_Points']
 
+# Realizar Unpivot al data frame inicial
+dis_calidad = pd.melt(df_main, id_vars=['Total_Cup_Points'],value_vars=Variables_Calidad_Cafe)
+
+fig = px.scatter(dis_calidad, x='value', y='Total_Cup_Points', color = 'variable', opacity = .4)
+st.plotly_chart(fig, use_container_width = True)
+
+st.write(dis_calidad)
+
+
+st.subheader('5. Que variables impacta con la calidad del café de la variedades más sembradas')
+# Variables principales que afectan la puntuación total
+Variables_Calidad_Cafe = ['Aroma','Flavor', 'Aftertaste', 'Acidity', 'Body', 'Balance', 'Uniformity',
+                          'Clean_Cup', 'Sweetness','Cupper_Points']
+
+# Realizar Unpivot al data frame inicial de las variedades más sembradas
+dis_calidad = pd.melt(df_main[df_main.Variety.isin(conteo_variedad_x_especie['Variety'].tolist())],
+                     id_vars=['Total_Cup_Points'],
+                     value_vars=Variables_Calidad_Cafe)
+
+
+fig = px.scatter(dis_calidad, x='value', y='Total_Cup_Points', color = 'variable', opacity = .4)
+st.plotly_chart(fig, use_container_width = True)
+
+st.write(dis_calidad)
