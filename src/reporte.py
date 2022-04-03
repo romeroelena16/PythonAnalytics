@@ -16,8 +16,6 @@ def load_data(nrows):
 df_load_state = st.text('Cargando data ...')
 df = load_data(8486)
 
-
-
 if st.checkbox('Mostrar datos crudos'):
     st.subheader('Datos crudos')
     st.write(df)
@@ -78,18 +76,38 @@ st.plotly_chart(altitud_promedio_variedad_8_mas_fig, use_container_width = True)
 # Tabla
 st.write(altitud_promedio_variedad_8_mas)
 
+
+
 ####### Tercera pregunta
 
 st.subheader('3. La altitud impacta con la calidad del café')
 
-Variables_Calidad_Cafe = ['Aroma','Flavor', 'Aftertaste', 'Acidity', 'Body', 'Balance', 'Uniformity',
-                          'Clean_Cup', 'Sweetness','Cupper_Points','Total_Cup_Points']
-
-Variables_Calidad_Cafe_fig = px.scatter(df_main,x='altitude_mean_meters',y='Total_Cup_Points',
+Variables_Calidad_Cafe_fig = px.scatter(df_main[df_main.Variety.isin(conteo_variedad_x_especie['Variety'].tolist())],
+                                        x='altitude_mean_meters',
+                                        y='Total_Cup_Points',
                                         color = 'Variety')
-px.scatter(df_main,x='Flavor',y='Total_Cup_Points',
-                                        color = 'Variety')
-
+                                 
+                                    
 st.plotly_chart(Variables_Calidad_Cafe_fig, use_container_width = True)
 
-help()
+
+####### Cuarta pregunta
+
+#Variables_Calidad_Cafe = ['Aroma','Flavor', 'Aftertaste', 'Acidity', 'Body', 'Balance', 'Uniformity',
+#                          'Clean_Cup', 'Sweetness','Cupper_Points','Total_Cup_Points']
+
+st.subheader('3. Que variables impacta con la calidad del café')
+
+Calidad_Cafe_fig = px.scatter(df_main,x='Aroma',y='Total_Cup_Points')
+Calidad_Cafe_fig2 = px.scatter(df_main,x='Flavor',y='Total_Cup_Points')
+#Calidad_Cafe_fig.add_scatter(x=df_main['Aftertaste'],y=df_main['Total_Cup_Points'])
+#Calidad_Cafe_fig.add_scatter(x=df_main['Acidity'],y=df_main['Total_Cup_Points'])
+#Calidad_Cafe_fig.add_scatter(x=df_main['Body'],y=df_main['Total_Cup_Points'])
+#Calidad_Cafe_fig.add_scatter(x=df_main['Balance'],y=df_main['Total_Cup_Points'])
+#Calidad_Cafe_fig.add_scatter(x=df_main['Uniformity'],y=df_main['Total_Cup_Points'])
+#Calidad_Cafe_fig.add_scatter(x=df_main['Clean_Cup'],y=df_main['Total_Cup_Points'])
+#Calidad_Cafe_fig.add_scatter(x=df_main['Sweetness'],y=df_main['Total_Cup_Points'])
+#Calidad_Cafe_fig.add_scatter(x=df_main['Cupper_Points'],y=df_main['Total_Cup_Points'])
+st.plotly_chart(Calidad_Cafe_fig, use_container_width = True)
+st.plotly_chart(Calidad_Cafe_fig2, use_container_width = True)
+
